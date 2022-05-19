@@ -9,11 +9,94 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	@IBOutlet var btn1: UIButton!
+	@IBOutlet var btn2: UIButton!
+	@IBOutlet var btn3: UIButton!
+	
+	var countries = [String]()
+	var score = 0
+	var correctAnswer = 0
+	var questionsAsked = 0
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
-	}
+		self.view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+		countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
+		setup()
+		askQuestion()
 
+	}
+	
+
+	
+	func askQuestion(action: UIAlertAction! = nil){
+		questionsAsked += 1
+		countries.shuffle()
+		
+		btn1.setImage(UIImage(named: countries[0]), for: .normal)
+		btn2.setImage(UIImage(named: countries[1]), for: .normal)
+		btn3.setImage(UIImage(named: countries[2]), for: .normal)
+		
+		correctAnswer = Int.random(in: 0...2) //index of right ans
+		
+		title = "\(countries[correctAnswer].uppercased()) Score: \(score)"
+		//change page title to answer
+		
+
+	}
+	
+	
+	@IBAction func buttonTapped(_ sender: UIButton) {
+		//tag of btn in IB button view is the variable name
+		
+		var title: String
+		
+		if sender.tag == correctAnswer {
+			title = "Correct"
+			score += 1
+		} else {
+			title = "Wrong! That's the flag of " + countries[correctAnswer]
+			score = score > 0 ? score-1 : score
+			
+		}
+		
+//		.alert = telling users about a situation change
+//		.actionSheet = asking them to choose from a set of options,
+//					 = slides options up from the bottom
+		
+		let ac = UIAlertController(
+					title: title,
+					message: "Your score is \(score).",
+					preferredStyle: .alert
+				)
+//					UIAlertAction data type to add a button to the alert that says
+//					"Continue", and gives it the style “default".
+//					possible styles: .default, .cancel, and .destructive.
+		ac.addAction(UIAlertAction(
+						title: "Continue",
+						style: .default,
+						handler: askQuestion //when pressed, go here/do this
+											 //this should be a closure, but if not
+											 // handler function wil complain so need to add
+											// parameter (UIAlertAction) in handler method
+					)
+		)
+		present(ac, animated: true)
+	}
+	
+	func setup() {
+		
+		
+		//edit border to btns
+//		btn1.layer.borderWidth = 1
+//		btn1.layer.borderColor = UIColor.lightGray.cgColor //need to use .cgcolor as .layer is not parent of .ui
+//			//.bordercolor belongs to CALayer (.layer)
+//		btn2.layer.borderWidth = 1
+//		btn2.layer.borderColor = UIColor(red: 1.0, green: 0.6, blue: 0.2, alpha: 1.0).cgColor
+//		btn3.layer.borderWidth = 1
+//		btn3.layer.borderColor = UIColor.lightGray.cgColor
+	}
+	
 
 }
 
