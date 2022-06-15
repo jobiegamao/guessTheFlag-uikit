@@ -20,8 +20,8 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-		countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
+		self.view.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.5794813682, blue: 0.7535604716, alpha: 1)
+		countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "UK", "USA"]
 		setup()
 		askQuestion()
 
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 		
 		correctAnswer = Int.random(in: 0...2) //index of right ans
 		
-		title = "\(countries[correctAnswer].uppercased()) Score: \(score)"
+		title = "Find the flag of \(countries[correctAnswer].uppercased()) Score: \(score)"
 		//change page title to answer
 		
 
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
 			title = "Correct"
 			score += 1
 		} else {
-			title = "Wrong! That's the flag of " + countries[correctAnswer]
+			title = "Wrong! That's the flag of " + countries[sender.tag].capitalized
 			score = score > 0 ? score-1 : score
 			
 		}
@@ -76,11 +76,12 @@ class ViewController: UIViewController {
 						title: "Continue",
 						style: .default,
 						handler: askQuestion //when pressed, go here/do this
-											 //this should be a closure, but if not
-											 // handler function wil complain so need to add
-											// parameter (UIAlertAction) in handler method
 					)
 		)
+		//this handler should be a closure, but if not
+		// handler function wil complain so need to add
+	   // action: UIAlertAction! = nil
+
 		present(ac, animated: true)
 	}
 	
@@ -88,13 +89,13 @@ class ViewController: UIViewController {
 		
 		
 		//edit border to btns
-//		btn1.layer.borderWidth = 1
-//		btn1.layer.borderColor = UIColor.lightGray.cgColor //need to use .cgcolor as .layer is not parent of .ui
-//			//.bordercolor belongs to CALayer (.layer)
-//		btn2.layer.borderWidth = 1
-//		btn2.layer.borderColor = UIColor(red: 1.0, green: 0.6, blue: 0.2, alpha: 1.0).cgColor
-//		btn3.layer.borderWidth = 1
-//		btn3.layer.borderColor = UIColor.lightGray.cgColor
+		btn1.layer.borderWidth = 1
+		btn1.layer.borderColor = UIColor.lightGray.cgColor //need to use .cgcolor as .layer is not parent of .ui
+			//.bordercolor belongs to CALayer (.layer)
+		btn2.layer.borderWidth = 1
+		btn2.layer.borderColor = UIColor(red: 0.6, green: 0.4, blue: 0.2, alpha: 1.0).cgColor
+		btn3.layer.borderWidth = 1
+		btn3.layer.borderColor = UIColor.lightGray.cgColor
 	}
 	
 
