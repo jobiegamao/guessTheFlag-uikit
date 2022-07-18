@@ -17,7 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C57-Ut-doO">
-                                <rect key="frame" x="95" y="138" width="224" height="114"/>
+                                <rect key="frame" x="107" y="188" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="C57-Ut-doO" secondAttribute="height" multiplier="2:1" id="pPm-v7-c6F"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="france" title="" imagePadding="0.0">
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
@@ -27,7 +30,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcZ-S4-96J">
-                                <rect key="frame" x="95" y="268" width="224" height="114"/>
+                                <rect key="frame" x="107" y="308" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bcZ-S4-96J" secondAttribute="height" multiplier="2:1" id="ekc-TQ-Se0"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us" imagePadding="0.0">
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
@@ -37,7 +43,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AL-uI-H53">
-                                <rect key="frame" x="107" y="412" width="200" height="100"/>
+                                <rect key="frame" x="107" y="428" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4AL-uI-H53" secondAttribute="height" multiplier="2:1" id="g0d-fo-uSi"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="ireland" imagePlacement="top" title="" imagePadding="0.0">
                                     <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
@@ -50,12 +59,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4AL-uI-H53" secondAttribute="bottom" constant="20" id="2MM-oU-OIh"/>
+                            <constraint firstItem="4AL-uI-H53" firstAttribute="height" secondItem="bcZ-S4-96J" secondAttribute="height" id="6ag-lb-6ca"/>
                             <constraint firstItem="4AL-uI-H53" firstAttribute="top" secondItem="bcZ-S4-96J" secondAttribute="bottom" constant="30" id="FGA-Ug-7pO"/>
-                            <constraint firstItem="C57-Ut-doO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="FQI-0R-Rer"/>
+                            <constraint firstItem="C57-Ut-doO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="FuZ-CU-A8y"/>
                             <constraint firstItem="bcZ-S4-96J" firstAttribute="centerX" secondItem="C57-Ut-doO" secondAttribute="centerX" id="MFy-Eg-JI1"/>
+                            <constraint firstItem="4AL-uI-H53" firstAttribute="top" secondItem="bcZ-S4-96J" secondAttribute="bottom" constant="20" id="Poc-N1-61i"/>
                             <constraint firstItem="4AL-uI-H53" firstAttribute="centerX" secondItem="bcZ-S4-96J" secondAttribute="centerX" id="ZRQ-Uj-sk1"/>
                             <constraint firstItem="bcZ-S4-96J" firstAttribute="top" secondItem="C57-Ut-doO" secondAttribute="bottom" constant="16" id="b1y-tI-tei"/>
                             <constraint firstItem="C57-Ut-doO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ba0-cH-kpZ"/>
+                            <constraint firstItem="4AL-uI-H53" firstAttribute="width" secondItem="bcZ-S4-96J" secondAttribute="width" id="ocm-oh-JkY"/>
+                            <constraint firstItem="bcZ-S4-96J" firstAttribute="height" secondItem="C57-Ut-doO" secondAttribute="height" id="pFm-Om-oAX"/>
+                            <constraint firstItem="bcZ-S4-96J" firstAttribute="top" secondItem="C57-Ut-doO" secondAttribute="bottom" constant="20" id="sMQ-BY-ezO"/>
+                            <constraint firstItem="C57-Ut-doO" firstAttribute="width" secondItem="bcZ-S4-96J" secondAttribute="width" id="tFh-69-anN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f4e-Bk-SSX"/>

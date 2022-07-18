@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 		
 		correctAnswer = Int.random(in: 0...2) //index of right ans
 		
-		title = "Find the flag of \(countries[correctAnswer].uppercased()) Score: \(score)"
+		title = "Find the flag of \(countries[correctAnswer].uppercased())"
 		//change page title to answer
 		
 
@@ -87,6 +87,7 @@ class ViewController: UIViewController {
 	
 	func setup() {
 		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Score", style: .plain,  target: self, action: #selector(scoreTapped))
 		
 		//edit border to btns
 		btn1.layer.borderWidth = 1
@@ -96,6 +97,13 @@ class ViewController: UIViewController {
 		btn2.layer.borderColor = UIColor(red: 0.6, green: 0.4, blue: 0.2, alpha: 1.0).cgColor
 		btn3.layer.borderWidth = 1
 		btn3.layer.borderColor = UIColor.lightGray.cgColor
+	}
+	
+	// project 3 challenge 3
+	@objc func scoreTapped() {
+		let ac = UIAlertController(title: "Score", message: String(score), preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+		present(ac, animated: true)
 	}
 	
 
